@@ -1,14 +1,13 @@
-//in descending order
 #include <stdio.h>
-void bubbleSort(int array[],int n){
-    for(int i=0;i<n-1;i++){
-        for(int j=0;j<n-i-1;j++){
-            if(array[j]<array[j+1]){
-                int temp=array[j];
-                array[j]=array[j+1];
-                array[j+1]=temp;
-            }
+void insertionSort(int array[],int n){
+    for(int i=1;i<n;i++){
+        int temp=array[i];
+        int j=i-1;
+        while(j>=0 && array[j]<temp ){
+            array[j+1]=array[j];
+            j--;
         }
+        array[j+1]=temp;
         printf("pass %d\t\t",i);
         for(int k=0;k<n;k++){
             printf("%d\t",array[k]);
@@ -29,6 +28,6 @@ int main(){
     for(int i=0;i<n;i++){
         scanf("%d",&array[i]);
     }
-    bubbleSort(array,n);
+    insertionSort(array,n);
     return 0;
 }

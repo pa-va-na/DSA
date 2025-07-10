@@ -1,14 +1,17 @@
-//in descending order
 #include <stdio.h>
-void bubbleSort(int array[],int n){
+void  selectionSort(int array[],int n){
     for(int i=0;i<n-1;i++){
-        for(int j=0;j<n-i-1;j++){
-            if(array[j]<array[j+1]){
-                int temp=array[j];
-                array[j]=array[j+1];
-                array[j+1]=temp;
+        int max=array[i];
+        int maxindex=i;
+        for(int j=i;j<n;j++){
+            if(array[j]>max){
+                max=array[j];
+                maxindex=j;
             }
         }
+        int temp=array[i];
+        array[i]=max;
+        array[maxindex]=temp;
         printf("pass %d\t\t",i);
         for(int k=0;k<n;k++){
             printf("%d\t",array[k]);
@@ -18,7 +21,7 @@ void bubbleSort(int array[],int n){
     printf("final sorted list\n");
     for(int k=0;k<n;k++){
             printf("%d\t",array[k]);
-        }
+    }
 }
 int main(){
     int n;
@@ -29,6 +32,6 @@ int main(){
     for(int i=0;i<n;i++){
         scanf("%d",&array[i]);
     }
-    bubbleSort(array,n);
+    selectionSort(array,n);
     return 0;
 }
